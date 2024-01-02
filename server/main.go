@@ -16,7 +16,7 @@ import (
 const (
 	SERVER_PORT = "8080"
 	BASE_URL    = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
-	MYSQL       = "yzwudqvd0vw7h5dwf3bs:pscale_pw_gBCsRDvPaZ9zFsgzSV1ej04BMO47LtpL283nwv8whF7@tcp(aws.connect.psdb.cloud)/go?tls=true&interpolateParams=true"
+	MYSQL       = ""
 )
 
 type Quote struct {
