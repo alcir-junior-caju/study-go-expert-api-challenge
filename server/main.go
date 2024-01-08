@@ -16,7 +16,7 @@ import (
 const (
 	SERVER_PORT = "8080"
 	BASE_URL    = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
-	MYSQL       = ""
+	MYSQL       = "root:root@tcp(localhost:3306)/go_db"
 )
 
 type Quote struct {
@@ -92,12 +92,8 @@ func quoteHandler(writer http.ResponseWriter, _ *http.Request) {
 func connectionDatabase() (*sql.DB, error) {
 	database, errorDatabase := sql.Open("mysql", MYSQL)
 	if errorDatabase != nil {
-		log.Fatalf("failed to connect: %v", errorDatabase)
+		panic(errorDatabase)
 	}
-	if errorDatabasePing := database.Ping(); errorDatabasePing != nil {
-		log.Fatalf("failed to ping: %v", errorDatabasePing)
-	}
-	log.Println("Successfully connected to PlanetScale!")
 	// TODO: Create initial table PlanetScale
 	statement, errorStatement := database.Prepare("CREATE TABLE IF NOT EXISTS quotes (id INT AUTO_INCREMENT PRIMARY KEY, code VARCHAR(255), codein VARCHAR(255), name VARCHAR(255), high VARCHAR(255), low VARCHAR(255), varBid VARCHAR(255), pctChange VARCHAR(255), bid VARCHAR(255), ask VARCHAR(255), timestamp VARCHAR(255), createDate VARCHAR(255))")
 	if errorStatement != nil {
