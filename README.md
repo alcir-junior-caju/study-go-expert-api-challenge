@@ -7,12 +7,6 @@
 
 ---
 
-## Observação
-Como eu uso o Mac M1 estava com um erro de compilação do sqlite3 então usei o `Planet Scale` para não ter de subir um container com o `mysql` assim basta executar o exemplo, mas os tempos dos `contexts` ficaram maiores por se tratar de um banco externo.
-
-No `Server` na linha 19 na constante `MYSQL` coloque uma conexão do `PlaneScale` para funcionar
-
-___
 ## Descrição
 
 O Curso GO Expert é uma formação completa para fazer com que pessoas desenvolvedoras sejam capazes de trabalhar em projetos expressivos sendo capazes de desenvolver aplicações de grande porte utilizando de boas práticas de desenvolvimento.
